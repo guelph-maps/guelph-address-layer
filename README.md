@@ -16,6 +16,13 @@ It is the reference layer for the
 [guelph-address-import](https://github.com/guelph-maps/guelph-address-import)
 project (both live in the [guelph-maps](https://github.com/guelph-maps) organisation): the same source the import conflates against, drawn so a mapper can
 check an address against the city's data without leaving the editor.
+Its sibling [guelph-beholder](https://github.com/guelph-maps/guelph-beholder)
+audits how completely those points are represented in OSM over time: this
+layer shows the City's source, the beholder shows what OSM still lacks.
+
+The same organisation publishes a matching layer for the City's park
+boundaries, [guelph-parks-layer](https://github.com/guelph-maps/guelph-parks-layer),
+live at https://guelph-maps.github.io/guelph-parks-layer/.
 
 ## Setup
 
