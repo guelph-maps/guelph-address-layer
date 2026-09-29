@@ -5,7 +5,7 @@ dataset (~53,800 civic address points, updated daily by the city) into
 map-tile layers (interactive vector + labelled raster) that OpenStreetMap
 mappers can add to the **iD** and **JOSM** editors as a reference overlay.
 
-**Live layer and how to add it: https://skfd.github.io/guelph-address-layer/**
+**Live layer and how to add it: https://guelph-maps.github.io/guelph-address-layer/**
 
 This is a thin repo: the whole pipeline is the
 [`address-layerist`](../address-layerist) engine. All that lives here is
@@ -13,8 +13,8 @@ This is a thin repo: the whole pipeline is the
 `run.py` shim, and the city outline in `assets/boundary.geojson`.
 
 It is the reference layer for the
-[guelph-address-import](https://github.com/skfd/guelph-address-import)
-project: the same source the import conflates against, drawn so a mapper can
+[guelph-address-import](https://github.com/guelph-maps/guelph-address-import)
+project (both live in the [guelph-maps](https://github.com/guelph-maps) organisation): the same source the import conflates against, drawn so a mapper can
 check an address against the city's data without leaving the editor.
 
 ## Setup
@@ -66,5 +66,5 @@ shared `../pull-then-update.cmd`.
 ## Licence / attribution
 
 Address data is &copy; City of Guelph, published under the
-[Open Data Licence](https://explore.guelph.ca/pages/open-data-license).
+[Open Government Licence &ndash; City of Guelph](https://gismaps.guelph.ca/Images/OpenDataLicenceVersion2.pdf).
 Tiles and the landing page carry that attribution. This repo is MIT licensed.
