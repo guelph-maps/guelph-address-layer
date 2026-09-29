@@ -1,0 +1,11 @@
+data/
+build/
+logs/
+*.geojson
+*.geojsonl
+*.mbtiles
+!assets/boundary.geojson
+__pycache__/
+*.pyc
+.venv/
+.claude/

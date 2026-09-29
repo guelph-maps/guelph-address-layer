@@ -1,0 +1,47 @@
+# Guelph address layer config. The data-source block (everything above
+# [layer]) is byte-compatible with ontario-address-changes/datasets/guelph.toml.
+# The engine that consumes this lives in ../address-layerist.
+
+slug = "guelph"
+provider = "City of Guelph"
+# The city's self-hosted open-data server (owner GuelphGIS_cityofguelph);
+# OpenData1 layer 0 = Addresses, ~53,800 points, updated daily.
+data_url = "https://gismaps.guelph.ca/hosting/rest/services/OpenData/OpenData1/FeatureServer/0"
+access = "arcgis"            # arcgis | static
+format = "geojson"          # geojson | shapefile (static only)
+license_name = "Open Government Licence - City of Guelph"
+
+[fields]                     # canonical -> source property
+number = "STREETNO"          # all-numeric; the suffix is a separate column
+street = "FULLNAME"          # "Cork Street West" (STNAME + STSUF + STDIR)
+unit   = "UNIT_NO"           # 13,162 of 53,847 rows (24%)
+suffix = "QUALIFIER"         # 206 rows (A/B/C/D/E, two B1/B2); folded into the
+                             # number, matching the city's own LABEL ("52B")
+full   = "ADDRESS"           # "52B Carden Street"
+
+[layer]
+title        = "Guelph Address Points"
+github_repo  = "skfd/guelph-address-layer"
+pages_url    = "https://skfd.github.io/guelph-address-layer"
+dataset_page = "https://explore.guelph.ca/datasets/cityofguelph::addresses-1"
+license_url  = "https://explore.guelph.ca/pages/open-data-license"
+attribution  = "(c) City of Guelph, Open Data Licence"
+changes_url  = "https://skfd.github.io/ontario-address-changes/guelph/"
+country_code = "CA"
+description  = "City of Guelph civic address points, drawn as house-number labels for OSM editors"
+# The city outline (OpenData1 layer 3, CityBoundary), used only for the
+# Editor Layer Index extent; without it the entry claims the data's bounding box.
+boundary     = "assets/boundary.geojson"
+# Floor for the slim feature count; the dump carries ~53.8k addresses.
+expected_min = 50000
+# Ship the postcode as a tile tag: it is what a mapper clicking a point in iD
+# most often wants next, and it exists on 98% of rows.
+mvt_extra    = { POSTCODE = "postcode" }
+# Keep rendering deeper zooms until nothing is left unlabelled, as Oakville
+# does; a completion zoom ships only the tiles holding its stragglers.
+raster_complete_to = 21
+# Defaults are fine for a city this size; uncomment to override:
+# vector_minzoom = 12
+# vector_maxzoom = 19
+# raster_zooms = [16, 17, 18, 19]
+# raster_label_zooms = [17, 18, 19]
