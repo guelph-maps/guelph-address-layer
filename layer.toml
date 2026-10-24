@@ -40,6 +40,8 @@ mvt_extra    = { POSTCODE = "postcode" }
 # Keep rendering deeper zooms until nothing is left unlabelled, as Oakville
 # does; a completion zoom ships only the tiles holding its stragglers.
 raster_complete_to = 21
+# Count visits under the shared osm-guelph GoatCounter site.
+head_extra   = '<script data-goatcounter="https://osm-guelph.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
 # Defaults are fine for a city this size; uncomment to override:
 # vector_minzoom = 12
 # vector_maxzoom = 19
